@@ -1,3 +1,3 @@
-module github.com/delbrocco-a/dwp-security-monitor
+module github.com/delbrocco-a/sentinel-security-monitor
 
 go 1.24.10

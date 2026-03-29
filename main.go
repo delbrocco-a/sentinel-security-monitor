@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/delbrocco-a/dwp-security-monitor/internal/events"
-	"github.com/delbrocco-a/dwp-security-monitor/internal/detector"
+	"github.com/delbrocco-a/sentinel-security-monitor/internal/events"
+	"github.com/delbrocco-a/sentinel-security-monitor/internal/detector"
 )
 
 

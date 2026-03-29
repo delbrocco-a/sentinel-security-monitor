@@ -4,7 +4,7 @@ import (
 	"time"
 	"net/http"
 	"encoding/json"
-	"github.com/delbrocco-a/dwp-security-monitor/internal/events"
+	"github.com/delbrocco-a/sentinel-security-monitor/internal/events"
 )
 
 const (
