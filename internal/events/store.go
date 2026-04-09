@@ -120,3 +120,14 @@ func (s *Store) ListAll() []Event {
 
 	return cp
 }
+
+
+// DirectInject writes an event directly into the store with a caller-supplied
+// timestamp, bypassing the HTTP layer. Intended for use in tests only.
+func (s *Store) DirectInject(e Event) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	e.ID = s.nextID
+	s.nextID++
+	s.Events = append(s.Events, e)
+}
