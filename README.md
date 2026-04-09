@@ -1,7 +1,7 @@
 
 # Sentinel Security Monitor
 
-A lightweight backend security event monitoring system written in Go. Sentinel ingests security events, stores them, and performs real-time anomaly detection — flagging suspicious activity such as repeated failed logins from the same source IP within a sliding time window.
+A lightweight backend security event monitoring system written in Go. Sentinel ingests security events, stores them, and performs real-time anomaly detection, then flagging suspicious activity such as repeated failed logins from the same source IP within a sliding time window.
 
 ---
 
@@ -17,20 +17,21 @@ Client / Sensor
 |                |
 |  Event Store   |  <---  GET /events
 |  (in-memory)   |
+|   (for now)    | 
 |                |
 |  Detector      |  <---  GET /anomalies
 +----------------+
       |
-      | (planned)
+      |
       v
 +----------------+      +------------------+
 |   Docker       | ---> |   AWS ECS        |
-|   Container    |      |   (Fargate)      |
+|                |      |                  |
 +----------------+      +------------------+
                                 |
                          +------+------+
                          | Terraform   |
-                         | (IaC)       |
+                         |             |
                          +-------------+
 ```
 
@@ -43,8 +44,8 @@ Client / Sensor
 | Component        | Technology                  |
 |------------------|-----------------------------|
 | Backend API      | Go 1.24                     |
-| Containerisation | Docker (planned)            |
-| Infrastructure   | Terraform + AWS ECS/Fargate (planned) |
+| Containerisation | Docker                      |
+| Infrastructure   | Terraform + AWS ECS         |
 | CI               | GitHub Actions              |
 
 ---
