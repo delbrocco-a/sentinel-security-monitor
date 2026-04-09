@@ -19,7 +19,9 @@ const (
 type Event struct {
 	ID        int       `json:"id"`
 	Type      EventType `json:"type"`
+	Username  string    `json:"username,omitempty"`
 	SourceIP  string    `json:"source_ip"`
+	Port			int       `json:"port,omitempty"`
 	Timestamp time.Time `json:"timestamp"`
 	Data			string    `json:"data"`
 }
