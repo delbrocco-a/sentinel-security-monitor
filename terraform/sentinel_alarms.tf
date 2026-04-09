@@ -27,7 +27,7 @@ resource "aws_cloudwatch_metric_alarm" "high_latency" {
   namespace           = "Sentinel/Performance"
   metric_name         = "ResponseTime_ms"
   dimensions          = { Endpoint = each.key }
-  statistic           = "p95"
+  extended_statistic  = "p95"
   period              = 60       # 1 minute (matches probe schedule)
   evaluation_periods  = 3
   threshold           = 500      # ms — alert if p95 exceeds 500 ms for 3 consecutive minutes
@@ -42,7 +42,7 @@ resource "aws_cloudwatch_metric_alarm" "anomaly_detection_latency" {
   namespace           = "Sentinel/Performance"
   metric_name         = "AnomalyDetectionLatency_ms"
   dimensions          = { Endpoint = "GetAnomalies" }
-  statistic           = "p95"
+  extended_statistic  = "p95"
   period              = 60
   evaluation_periods  = 3
   threshold           = 1000     # ms — detection should complete within 1 second
